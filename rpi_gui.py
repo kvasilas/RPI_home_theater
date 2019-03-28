@@ -1,5 +1,8 @@
 #Python3
 #Kirk Vasilas
+#
+#
+#
 
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
@@ -48,8 +51,8 @@ class home_theater(QWidget):
         snos.setGeometry(self.pos1, self.pos2, self.block_size, self.block_size)
         snos.clicked.connect(self.launch_snos)
 
-        othr = QPushButton('OTHER', self)
-        othr.setToolTip('Open Other media thing that you dont know?')
+        othr = QPushButton('XBOX', self)
+        othr.setToolTip('Switch input and play some Xbox?')
         othr.setGeometry(self.pos2, self.pos2, self.block_size, self.block_size)
         othr.clicked.connect(self.launch_othr)
 
