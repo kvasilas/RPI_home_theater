@@ -1,7 +1,7 @@
 # RPI_home_theater
 Code for Raspberry pi use as a home theater.
 
-##Ideas
+## Ideas
 - boot up on start and is a file on the home screen
 - 3d print case and attach it to ceiling
 - get wireless mouse and keyboard.
