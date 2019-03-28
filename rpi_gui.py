@@ -61,6 +61,8 @@ class home_theater(QWidget):
         pc.setGeometry(self.pos3, self.pos2, self.block_size, self.block_size)
         pc.clicked.connect(self.exit_prog)
 
+        #google search input box
+
         self.show()
 
     def launch_nflx(self):
