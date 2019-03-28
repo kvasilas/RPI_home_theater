@@ -29,7 +29,7 @@ class home_theater(QWidget):
         self.top = 100
         self.block_size = 300
         border = 15
-        self.pos1 = border
+        self.pos1 = border  
         self.pos2 = border + self.pos1 + self.block_size
         self.pos3 = border + self.pos2 + self.block_size
         self.width = border + self.pos3 + self.block_size
@@ -40,6 +40,10 @@ class home_theater(QWidget):
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
+
+        #labels
+        #welcome to Greenport label on top.  Make it look nice
+        #     or... all steve's pals
 
         #buttons
         nflx = QPushButton('NETFLIX', self)
