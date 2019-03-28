@@ -4,12 +4,21 @@
 #
 #
 
+import webbrowser
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
 from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import Qt
 from PyQt5.QtCore import pyqtSlot
 
 import hdmi_switch as hdmi
+
+#global parameters
+# Windows for development
+chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+# Linux
+# chrome_path = '/usr/bin/google-chrome %s'
+
 
 class home_theater(QWidget):
 
@@ -48,10 +57,10 @@ class home_theater(QWidget):
         ytbe.setGeometry(self.pos3, self.pos1, self.block_size, self.block_size)
         ytbe.clicked.connect(self.launch_ytbe)
 
-        snos = QPushButton('SONOS', self)
-        snos.setToolTip('Open Sonos music player?')
-        snos.setGeometry(self.pos1, self.pos2, self.block_size, self.block_size)
-        snos.clicked.connect(self.launch_snos)
+        nwii = QPushButton('Nintendo Wii', self)
+        nwii.setToolTip('Switch input and play some Wii?')
+        nwii.setGeometry(self.pos1, self.pos2, self.block_size, self.block_size)
+        nwii.clicked.connect(self.launch_nwii)
 
         xbox = QPushButton('XBOX', self)
         xbox.setToolTip('Switch input and play some Xbox?')
@@ -68,15 +77,18 @@ class home_theater(QWidget):
         self.show()
 
     def launch_nflx(self):
-        pass
+        url = 'https://www.netflix.com/browse'
+        webbrowser.get(chrome_path).open(url)
 
     def launch_amzn(self):
-        pass
+        url = 'https://www.amazon.com/Prime-Video/b?ie=UTF8&node=2676882011'
+        webbrowser.get(chrome_path).open(url)
 
     def launch_ytbe(self):
-        pass
+        url = 'https://www.youtube.com/'
+        webbrowser.get(chrome_path).open(url)
 
-    def launch_snos(self):
+    def launch_nwii(self):
         pass
 
     def launch_xbox(self):
