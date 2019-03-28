@@ -9,6 +9,8 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 
+import hdmi_switch as hdmi
+
 class home_theater(QWidget):
 
     def __init__(self):
@@ -51,10 +53,10 @@ class home_theater(QWidget):
         snos.setGeometry(self.pos1, self.pos2, self.block_size, self.block_size)
         snos.clicked.connect(self.launch_snos)
 
-        othr = QPushButton('XBOX', self)
-        othr.setToolTip('Switch input and play some Xbox?')
-        othr.setGeometry(self.pos2, self.pos2, self.block_size, self.block_size)
-        othr.clicked.connect(self.launch_othr)
+        xbox = QPushButton('XBOX', self)
+        xbox.setToolTip('Switch input and play some Xbox?')
+        xbox.setGeometry(self.pos2, self.pos2, self.block_size, self.block_size)
+        xbox.clicked.connect(self.launch_xbox)
 
         pc = QPushButton('COMPUTER', self)
         pc.setToolTip('Exit to computer?')
@@ -77,7 +79,7 @@ class home_theater(QWidget):
     def launch_snos(self):
         pass
 
-    def launch_othr(self):
+    def launch_xbox(self):
         pass
 
     def exit_prog(self):
