@@ -21,3 +21,5 @@ maybe see if you can go xbox? idk how possible that is.  actually if i have a wi
 search bar to look for a specific title ie: firestick
 
 use pictures and icons to make it look nicer
+
+partical app intergration as a phone based mobile remote
