@@ -93,10 +93,17 @@ class home_theater(QWidget):
         webbrowser.get(chrome_path).open(url)
 
     def launch_nwii(self):
-        pass
+        hdmi.switch_input(2)
+        #press enter 2x to return back, this way it shouldnt accidently happen
+        input()
+        input()
+        hdmi.hdmi_switch(1)
 
     def launch_xbox(self):
-        pass
+        hdmi.switch_input(3)
+        input()
+        input()
+        hdmi.hdmi_switch(1)
 
     def exit_prog(self):
         sys.exit()
