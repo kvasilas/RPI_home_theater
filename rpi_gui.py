@@ -8,7 +8,7 @@ import webbrowser
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
 from PyQt5.QtGui import QIcon
-from PyQt5.QtGui import Qt
+#from PyQt5.QtGui import Qt
 from PyQt5.QtCore import pyqtSlot
 
 import hdmi_switch as hdmi
@@ -29,7 +29,7 @@ class home_theater(QWidget):
         self.top = 100
         self.block_size = 300
         border = 15
-        self.pos1 = border  
+        self.pos1 = border
         self.pos2 = border + self.pos1 + self.block_size
         self.pos3 = border + self.pos2 + self.block_size
         self.width = border + self.pos3 + self.block_size
