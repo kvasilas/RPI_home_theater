@@ -12,7 +12,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtCore import pyqtSlot
 
-import searching.py as s
+import searching as s
 #import hdmi_switch as hdmi
 
 #global parameters
@@ -142,6 +142,7 @@ class home_theater(QWidget):
         title = self.search_bar.text()
         print(title)
         found_list = s.search_title(title)
+        print(found_list)
         #well that sucked to figure out
         #have it search the text and then nflx, prime....
         #look at the output strings of each and return the ones that look good
@@ -151,7 +152,8 @@ class home_theater(QWidget):
 
 
     def exit_prog(self):
-        print("bye KC")
+
+        print("##########","# bye KC #", "##########", sep='\n')
         sys.exit()
 
 if __name__ == '__main__':
