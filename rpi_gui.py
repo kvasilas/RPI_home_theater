@@ -7,11 +7,11 @@
 import webbrowser
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
-from PyQt5.QtGui import QIcon
-#from PyQt5.QtGui import Qt
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 from PyQt5.QtCore import pyqtSlot
 
-import hdmi_switch as hdmi
+#import hdmi_switch as hdmi
 
 #global parameters
 # Windows for development
@@ -50,6 +50,8 @@ class home_theater(QWidget):
         nflx.setToolTip('Open NETFLIX?')
         nflx.setGeometry(self.pos1, self.pos1, self.block_size, self.block_size)
         nflx.clicked.connect(self.launch_nflx)
+        nflx.setIcon(QIcon('C:/Users/USER/Documents/coding/projects/pics_for_pi/n.png'))
+        nflx.setIconSize(QSize(24,24))
 
         amzn = QPushButton('AMAZON', self)
         amzn.setToolTip('Open Amazon Prime Video?')
@@ -93,17 +95,17 @@ class home_theater(QWidget):
         webbrowser.get(chrome_path).open(url)
 
     def launch_nwii(self):
-        hdmi.switch_input(2)
+        #hdmi.switch_input(2)
         #press enter 2x to return back, this way it shouldnt accidently happen
         input()
         input()
-        hdmi.hdmi_switch(1)
+        #hdmi.hdmi_switch(1)
 
     def launch_xbox(self):
-        hdmi.switch_input(3)
+        #hdmi.switch_input(3)
         input()
         input()
-        hdmi.hdmi_switch(1)
+        #hdmi.hdmi_switch(1)
 
     def exit_prog(self):
         sys.exit()

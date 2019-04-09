@@ -19,9 +19,9 @@ def current_state():
     p3 = 0 #xbox
     high = 1
     #assumes one will always be high
-    if(p1 = high):
+    if(p1 == high):
         return(1)
-    elif(p2 = high):
+    elif(p2 == high):
         return(2)
     else:
         return(3)
