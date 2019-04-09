@@ -23,3 +23,5 @@ search bar to look for a specific title ie: firestick
 use pictures and icons to make it look nicer
 
 partical app intergration as a phone based mobile remote
+
+sony crackle?
