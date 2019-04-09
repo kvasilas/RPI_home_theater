@@ -13,4 +13,9 @@ def switch(target, current):
         #get current
         print(current, target, sep=' / ')
     return()
-switch(target, current)
+#switch(target, current)
+
+string = 'penis'
+print(string[0])
+string = 'gobbler' + string
+print(string)

@@ -19,6 +19,10 @@ chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 # Linux
 # chrome_path = '/usr/bin/google-chrome %s'
 
+#picture address
+#windows
+pic_path = 'C:/Users/USER/Documents/coding/projects/pics_for_pi/'
+#linux
 
 class home_theater(QWidget):
 
@@ -46,36 +50,52 @@ class home_theater(QWidget):
         #     or... all steve's pals
 
         #buttons
-        nflx = QPushButton('NETFLIX', self)
+        #nflx = QPushButton('NETFLIX', self)
+        nflx = QPushButton('', self)
         nflx.setToolTip('Open NETFLIX?')
         nflx.setGeometry(self.pos1, self.pos1, self.block_size, self.block_size)
         nflx.clicked.connect(self.launch_nflx)
-        nflx.setIcon(QIcon('C:/Users/USER/Documents/coding/projects/pics_for_pi/n.png'))
-        nflx.setIconSize(QSize(24,24))
+        nflx.setIcon(QIcon(pic_path + 'n.png'))
+        nflx.setIconSize(QSize(self.block_size*.75, self.block_size*.75))
 
-        amzn = QPushButton('AMAZON', self)
+        #amzn = QPushButton('AMAZON', self)
+        amzn = QPushButton('', self)
         amzn.setToolTip('Open Amazon Prime Video?')
         amzn.setGeometry(self.pos2, self.pos1, self.block_size, self.block_size)
+        amzn.setIcon(QIcon(pic_path + 'prime.png'))
+        amzn.setIconSize(QSize(self.block_size*.75, self.block_size*.75))
         amzn.clicked.connect(self.launch_amzn)
 
-        ytbe = QPushButton('YOUTUBE', self)
+        #ytbe = QPushButton('YOUTUBE', self)
+        ytbe = QPushButton('', self)
         ytbe.setToolTip('Open Youtube?')
         ytbe.setGeometry(self.pos3, self.pos1, self.block_size, self.block_size)
+        ytbe.setIcon(QIcon(pic_path + 'youtube.png'))
+        ytbe.setIconSize(QSize(self.block_size*.75, self.block_size*.75))
         ytbe.clicked.connect(self.launch_ytbe)
 
-        nwii = QPushButton('Nintendo Wii', self)
+        #nwii = QPushButton('Nintendo Wii', self)
+        nwii = QPushButton('', self)
         nwii.setToolTip('Switch input and play some Wii?')
         nwii.setGeometry(self.pos1, self.pos2, self.block_size, self.block_size)
+        nwii.setIcon(QIcon(pic_path + 'wii.png'))
+        nwii.setIconSize(QSize(self.block_size*.75, self.block_size*.75))
         nwii.clicked.connect(self.launch_nwii)
 
-        xbox = QPushButton('XBOX', self)
+        #xbox = QPushButton('XBOX', self)
+        xbox = QPushButton('', self)
         xbox.setToolTip('Switch input and play some Xbox?')
         xbox.setGeometry(self.pos2, self.pos2, self.block_size, self.block_size)
+        xbox.setIcon(QIcon(pic_path + 'xbox.png'))
+        xbox.setIconSize(QSize(self.block_size*.75, self.block_size*.75))
         xbox.clicked.connect(self.launch_xbox)
 
-        pc = QPushButton('COMPUTER', self)
+        #pc = QPushButton('COMPUTER', self)
+        pc = QPushButton('', self)
         pc.setToolTip('Exit to computer?')
         pc.setGeometry(self.pos3, self.pos2, self.block_size, self.block_size)
+        pc.setIcon(QIcon(pic_path + 'rpi.png'))
+        pc.setIconSize(QSize(self.block_size*.75, self.block_size*.75))
         pc.clicked.connect(self.exit_prog)
 
         #google search input box
@@ -108,6 +128,7 @@ class home_theater(QWidget):
         #hdmi.hdmi_switch(1)
 
     def exit_prog(self):
+        print("bye KC")
         sys.exit()
 
 if __name__ == '__main__':
