@@ -26,3 +26,5 @@ if __name__ == '__main__':
 icon  = QtGui.QPixmap('add.gif')
 button = QtGui.QPushButton()
 button.setIcon(icon)
+
+-------------------------------------------------

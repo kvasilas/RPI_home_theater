@@ -5,12 +5,14 @@
 #
 
 import webbrowser
+import googlesearch
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox, QLineEdit, QLabel
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtCore import pyqtSlot
 
+import searching.py as s
 #import hdmi_switch as hdmi
 
 #global parameters
@@ -32,12 +34,14 @@ class home_theater(QWidget):
         self.left = 100
         self.top = 100
         self.block_size = 300
+        self.search_bar_height = 40
+        self.search_bar_width = 300
         border = 15
         self.pos1 = border
         self.pos2 = border + self.pos1 + self.block_size
         self.pos3 = border + self.pos2 + self.block_size
         self.width = border + self.pos3 + self.block_size
-        self.height = self.pos3
+        self.height = self.pos3 + self.search_bar_height + border
 
         self.initUI()
 
@@ -99,6 +103,13 @@ class home_theater(QWidget):
         pc.clicked.connect(self.exit_prog)
 
         #google search input box
+        search_btn = QPushButton('Search Bar', self)
+        search_btn.setGeometry(self.pos2-self.search_bar_width/3, self.pos3, self.search_bar_width/3, self.search_bar_height)
+        search_btn.clicked.connect(self.search_title)
+        self.search_bar = QLineEdit(self)
+        self.search_bar.setGeometry(self.pos2, self.pos3, self.search_bar_width, self.search_bar_height)
+        self.search_bar.returnPressed.connect(search_btn.click)
+        #search_bar.textChanged[str].connect(self.search_title)
 
         self.show()
 
@@ -126,6 +137,18 @@ class home_theater(QWidget):
         input()
         input()
         #hdmi.hdmi_switch(1)
+
+    def search_title(self):
+        title = self.search_bar.text()
+        print(title)
+        found_list = s.search_title(title)
+        #well that sucked to figure out
+        #have it search the text and then nflx, prime....
+        #look at the output strings of each and return the ones that look good
+        #if passed make small buttons on a QMessageBox to pick which to load it on
+        #use url to pass that adress to google and load it
+        #then quit the QMessageBox
+
 
     def exit_prog(self):
         print("bye KC")
