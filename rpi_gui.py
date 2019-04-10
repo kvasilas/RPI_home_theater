@@ -143,16 +143,12 @@ class home_theater(QWidget):
         print(title)
         found_list = s.search_title(title)
         print(found_list)
-        #well that sucked to figure out
-        #have it search the text and then nflx, prime....
-        #look at the output strings of each and return the ones that look good
         #if passed make small buttons on a QMessageBox to pick which to load it on
         #use url to pass that adress to google and load it
         #then quit the QMessageBox
 
 
     def exit_prog(self):
-
         print("##########","# bye KC #", "##########", sep='\n')
         sys.exit()
 
