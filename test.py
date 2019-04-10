@@ -9,3 +9,4 @@ for x in range(len(words)):
 
 del words[2]
 print(words)
+print(len(wrods))
