@@ -118,3 +118,4 @@ dmypy.json
 *.DS_Store
 *.stackdump
 *.google-cookie
+*.512
