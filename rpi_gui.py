@@ -1,30 +1,37 @@
-#Python3
-#Kirk Vasilas
+# Python3
 #
+# Home Theater (Firestick ish) application.
+# Intended to run on raspbery pi
 #
+# Author: Kirk KC Vasilas
+# Created: April 2019
 #
 
+#PYTHON MODULES
 import webbrowser
 import googlesearch
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox, QLineEdit, QLabel
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-from PyQt5.QtCore import pyqtSlot
+#from PyQt5.QtCore import pyqtSlot
 
+#CUSTOM MODULES
 import searching as s
 #import hdmi_switch as hdmi
 
-#global parameters
+
+#GLOBAL PARAMETERS
+#GOOGLE LOCATION
 # Windows for development
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 # Linux
 # chrome_path = '/usr/bin/google-chrome %s'
-
-#picture address
+#PICTURE ADDRESS
 #windows
 pic_path = 'C:/Users/USER/Documents/coding/projects/pics_for_pi/'
 #linux
+
 
 class home_theater(QWidget):
 
@@ -145,9 +152,8 @@ class home_theater(QWidget):
             home_theater.found_list = s.search_title(home_theater.title)
             #home_theater.found_list = ['https://www.netflix.com/title/80018294', 'hulu',  'https://www.amazon.com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
             #home_theater.found_list = ['https://www..com/title/80018294', '',  'https://www..com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
-
             print(home_theater.found_list)
-            self.dialog = classB(self)
+            self.dialog = results(self)
             self.dialog.show()
 
     def exit_prog(self):
@@ -155,9 +161,9 @@ class home_theater(QWidget):
         sys.exit()
 
 
-class classB(home_theater):
+class results(home_theater):
     def __init__(self, parent= home_theater):
-        super(classB, self).__init__()
+        super(results, self).__init__()
         self.initUI()
 
     def initUI(self):
@@ -172,7 +178,10 @@ class classB(home_theater):
         self.setWindowTitle(home_theater.title)
         L1 = QLabel()
         L1.setText('Watch ' + home_theater.title + ' on:' )
-        if(len(home_theater.found_list) == 1):
+        if(home_theater.found_list == []):
+            b = QPushButton("Not found Exit?", self)
+            b.clicked.connect(self.exit_prog)
+        elif(len(home_theater.found_list) == 1):
             b0 = QPushButton(buttons[0], self)
             b0.setToolTip('Open ' + buttons[0] +'?' )
             b0.clicked.connect(self.load_b0)
@@ -201,7 +210,7 @@ class classB(home_theater):
             b2.setToolTip('Open ' + buttons[2] +'?' )
             b2.clicked.connect(self.load_b2)
             b2.move(0, btn_size/2.5)
-        elif(len(home_theater.found_list) == 3):
+        elif(len(home_theater.found_list) == 4):
             #opt 1
             b0 = QPushButton(buttons[0], self)
             b0.setToolTip('Open ' + buttons[0] +'?' )
@@ -221,27 +230,19 @@ class classB(home_theater):
             b3.setToolTip('Open ' + buttons[3] +'?' )
             b3.clicked.connect(self.load_b3)
             b3.move(btn_size, btn_size/2.5)
-        else:
-            b = QPushButton("Not found Exit?", self)
-            b.clicked.connect(self.exit_prog)
-
 
         self.show()
 
     def load_b0(self):
         webbrowser.get(chrome_path).open(home_theater.found_list[0])
-        sys.exit()
     def load_b1(self):
         webbrowser.get(chrome_path).open(home_theater.found_list[1])
-        sys.exit()
     def load_b2(self):
         webbrowser.get(chrome_path).open(home_theater.found_list[2])
-        sys.exit()
     def load_b3(self):
         webbrowser.get(chrome_path).open(home_theater.found_list[3])
-        sys.exit()
     def exit_prog(self):
-        sys.exit()
+        pass
 
 
 if __name__ == '__main__':
