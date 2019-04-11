@@ -28,6 +28,9 @@ pic_path = 'C:/Users/USER/Documents/coding/projects/pics_for_pi/'
 
 class home_theater(QWidget):
 
+    title = ''
+    found_list = []
+
     def __init__(self):
         super().__init__()
         self.title = 'Welcome to Greenport'
@@ -103,13 +106,12 @@ class home_theater(QWidget):
         pc.clicked.connect(self.exit_prog)
 
         #google search input box
-        search_btn = QPushButton('Search Bar', self)
+        search_btn = QPushButton('Search', self)
         search_btn.setGeometry(self.pos2-self.search_bar_width/3, self.pos3, self.search_bar_width/3, self.search_bar_height)
         search_btn.clicked.connect(self.search_title)
         self.search_bar = QLineEdit(self)
         self.search_bar.setGeometry(self.pos2, self.pos3, self.search_bar_width, self.search_bar_height)
         self.search_bar.returnPressed.connect(search_btn.click)
-        #search_bar.textChanged[str].connect(self.search_title)
 
         self.show()
 
@@ -138,44 +140,109 @@ class home_theater(QWidget):
         input()
         #hdmi.hdmi_switch(1)
 
-    def launch_title(self):
-        webbrowser.get(chrome_path).open(self.found_list[0])
-
     def search_title(self):
-        title = self.search_bar.text()
-        print(title)
-        self.found_list = s.search_title(title)
-        print(self.found_list)
-        msg = QMessageBox()
-        msg.setText(title)
-        msg.setInformativeText("has been found at the following:")
-        msg.setWindowTitle("Where to Watch")
-        if(len(self.found_list)==4):
-            pass
-            #b1 = QPushButton(found_list[0], self)
-            #QMessageBox with all 4 buttons
-            #search the string from www.xxxx.com pill the # XXX
-        elif(len(self.found_list)==3):
-            pass
-            #same
-        elif(len(self.found_list)==2):
-            msg.addButton(QPushButton('Amazon'), QMessageBox.YesRole)
-            msg.buttonClicked.connect(self.launch_title) #
-            #same
-        elif(len(self.found_list)==1):
-            pass
-        else:
-            pass
-            #QMessageBox show not found sorry :(
-        retval = msg.exec_()
-        #if passed make small buttons on a QMessageBox to pick which to load it on
-        #use url to pass that adress to google and load it
-        #then quit the QMessageBox
+            home_theater.title = self.search_bar.text()
+            home_theater.found_list = s.search_title(home_theater.title)
+            #home_theater.found_list = ['https://www.netflix.com/title/80018294', 'hulu',  'https://www.amazon.com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
+            #home_theater.found_list = ['https://www..com/title/80018294', '',  'https://www..com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
 
+            print(home_theater.found_list)
+            self.dialog = classB(self)
+            self.dialog.show()
 
     def exit_prog(self):
         print("##########","# bye KC #", "##########", sep='\n')
         sys.exit()
+
+
+class classB(home_theater):
+    def __init__(self, parent= home_theater):
+        super(classB, self).__init__()
+        self.initUI()
+
+    def initUI(self):
+        btn_size = 100
+        self.setGeometry(250, 250, 2*btn_size, btn_size)
+        keys = ['netflix', 'amazon', 'hulu', 'crackle']
+        buttons = []
+        for i in range(len(home_theater.found_list)):
+            for j in range(len(keys)):
+                if keys[j] in home_theater.found_list[i]:
+                    buttons.append(keys[j])
+        self.setWindowTitle(home_theater.title)
+        L1 = QLabel()
+        L1.setText('Watch ' + home_theater.title + ' on:' )
+        if(len(home_theater.found_list) == 1):
+            b0 = QPushButton(buttons[0], self)
+            b0.setToolTip('Open ' + buttons[0] +'?' )
+            b0.clicked.connect(self.load_b0)
+        elif(len(home_theater.found_list) == 2):
+            #opt 1
+            b0 = QPushButton(buttons[0], self)
+            b0.setToolTip('Open ' + buttons[0] +'?' )
+            b0.clicked.connect(self.load_b0)
+            #opt 2
+            b1 = QPushButton(buttons[1], self)
+            b1.setToolTip('Open ' + buttons[1] +'?' )
+            b1.clicked.connect(self.load_b1)
+            b1.move(btn_size, 0)
+        elif(len(home_theater.found_list) == 3):
+            #opt 1
+            b0 = QPushButton(buttons[0], self)
+            b0.setToolTip('Open ' + buttons[0] +'?' )
+            b0.clicked.connect(self.load_b0)
+            #opt 2
+            b1 = QPushButton(buttons[1], self)
+            b1.setToolTip('Open ' + buttons[1] +'?' )
+            b1.clicked.connect(self.load_b1)
+            b1.move(btn_size, 0)
+            #opt 3
+            b2 = QPushButton(buttons[2], self)
+            b2.setToolTip('Open ' + buttons[2] +'?' )
+            b2.clicked.connect(self.load_b2)
+            b2.move(0, btn_size/2.5)
+        elif(len(home_theater.found_list) == 3):
+            #opt 1
+            b0 = QPushButton(buttons[0], self)
+            b0.setToolTip('Open ' + buttons[0] +'?' )
+            b0.clicked.connect(self.load_b0)
+            #opt 2
+            b1 = QPushButton(buttons[1], self)
+            b1.setToolTip('Open ' + buttons[1] +'?' )
+            b1.clicked.connect(self.load_b1)
+            b1.move(btn_size, 0)
+            #opt 3
+            b2 = QPushButton(buttons[2], self)
+            b2.setToolTip('Open ' + buttons[2] +'?' )
+            b2.clicked.connect(self.load_b2)
+            b2.move(0, btn_size/2.5)
+            #opt 4
+            b3 = QPushButton(buttons[3], self)
+            b3.setToolTip('Open ' + buttons[3] +'?' )
+            b3.clicked.connect(self.load_b3)
+            b3.move(btn_size, btn_size/2.5)
+        else:
+            b = QPushButton("Not found Exit?", self)
+            b.clicked.connect(self.exit_prog)
+
+
+        self.show()
+
+    def load_b0(self):
+        webbrowser.get(chrome_path).open(home_theater.found_list[0])
+        sys.exit()
+    def load_b1(self):
+        webbrowser.get(chrome_path).open(home_theater.found_list[1])
+        sys.exit()
+    def load_b2(self):
+        webbrowser.get(chrome_path).open(home_theater.found_list[2])
+        sys.exit()
+    def load_b3(self):
+        webbrowser.get(chrome_path).open(home_theater.found_list[3])
+        sys.exit()
+    def exit_prog(self):
+        sys.exit()
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

@@ -2,9 +2,9 @@ import googlesearch
 
 def search_title(title):
     found_list = []
-    keys = [' netflix', ' amazon prime', ' hulu', ' crackle']
+    keys = ['netflix', 'amazon prime', 'hulu', 'crackle']
     for x in range(len(keys)):
-        query = keys[x] + title
+        query = keys[x] + " " + title
         for j in googlesearch.search(query, tld="co.in", num=10, stop=1, pause=2):
             found_list.append(j)
     print(found_list)
