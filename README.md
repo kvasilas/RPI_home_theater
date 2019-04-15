@@ -25,3 +25,5 @@ use pictures and icons to make it look nicer
 partical app intergration as a phone based mobile remote
 
 sony crackle?
+
+l1 = QLabel(self)
