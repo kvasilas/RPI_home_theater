@@ -14,7 +14,6 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox, QLineEdit, QLabel
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-#from PyQt5.QtCore import pyqtSlot
 
 #CUSTOM MODULES
 import searching as s
@@ -60,8 +59,6 @@ class home_theater(QWidget):
         self.setGeometry(self.left, self.top, self.width, self.height)
 
         #labels
-        #welcome to Greenport label on top.  Make it look nice
-        #     or... all steve's pals
 
         #buttons
         #nflx = QPushButton('NETFLIX', self)
@@ -150,6 +147,7 @@ class home_theater(QWidget):
     def search_title(self):
             home_theater.title = self.search_bar.text()
             home_theater.found_list = s.search_title(home_theater.title)
+            #test arrays
             #home_theater.found_list = ['https://www.netflix.com/title/80018294', 'hulu',  'https://www.amazon.com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
             #home_theater.found_list = ['https://www..com/title/80018294', '',  'https://www..com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
             print(home_theater.found_list)
@@ -168,7 +166,7 @@ class results(home_theater):
 
     def initUI(self):
         btn_size = 100
-        self.setGeometry(250, 250, 2*btn_size, btn_size)
+        self.setGeometry(250, 400, 2*btn_size, btn_size)
         keys = ['netflix', 'amazon', 'hulu', 'crackle']
         buttons = []
         for i in range(len(home_theater.found_list)):
@@ -176,7 +174,7 @@ class results(home_theater):
                 if keys[j] in home_theater.found_list[i]:
                     buttons.append(keys[j])
         self.setWindowTitle(home_theater.title)
-        L1 = QLabel()
+        L1 = QLabel(self)
         L1.setText('Watch ' + home_theater.title + ' on:' )
         if(home_theater.found_list == []):
             b = QPushButton("Not found Exit?", self)
@@ -185,51 +183,55 @@ class results(home_theater):
             b0 = QPushButton(buttons[0], self)
             b0.setToolTip('Open ' + buttons[0] +'?' )
             b0.clicked.connect(self.load_b0)
+            b0.move(0, 25)
         elif(len(home_theater.found_list) == 2):
             #opt 1
             b0 = QPushButton(buttons[0], self)
             b0.setToolTip('Open ' + buttons[0] +'?' )
             b0.clicked.connect(self.load_b0)
+            b0.move(0, 25)
             #opt 2
             b1 = QPushButton(buttons[1], self)
             b1.setToolTip('Open ' + buttons[1] +'?' )
             b1.clicked.connect(self.load_b1)
-            b1.move(btn_size, 0)
+            b1.move(btn_size, 25)
         elif(len(home_theater.found_list) == 3):
             #opt 1
             b0 = QPushButton(buttons[0], self)
             b0.setToolTip('Open ' + buttons[0] +'?' )
             b0.clicked.connect(self.load_b0)
+            b0.move(0, 25)
             #opt 2
             b1 = QPushButton(buttons[1], self)
             b1.setToolTip('Open ' + buttons[1] +'?' )
             b1.clicked.connect(self.load_b1)
-            b1.move(btn_size, 0)
+            b1.move(btn_size, 25)
             #opt 3
             b2 = QPushButton(buttons[2], self)
             b2.setToolTip('Open ' + buttons[2] +'?' )
             b2.clicked.connect(self.load_b2)
-            b2.move(0, btn_size/2.5)
+            b2.move(0, 25 + btn_size/2.5)
         elif(len(home_theater.found_list) == 4):
             #opt 1
             b0 = QPushButton(buttons[0], self)
             b0.setToolTip('Open ' + buttons[0] +'?' )
             b0.clicked.connect(self.load_b0)
+            b0.move(0, 25)
             #opt 2
             b1 = QPushButton(buttons[1], self)
             b1.setToolTip('Open ' + buttons[1] +'?' )
             b1.clicked.connect(self.load_b1)
-            b1.move(btn_size, 0)
+            b1.move(btn_size, 25)
             #opt 3
             b2 = QPushButton(buttons[2], self)
             b2.setToolTip('Open ' + buttons[2] +'?' )
             b2.clicked.connect(self.load_b2)
-            b2.move(0, btn_size/2.5)
+            b2.move(0, 25 + btn_size/2.5)
             #opt 4
             b3 = QPushButton(buttons[3], self)
             b3.setToolTip('Open ' + buttons[3] +'?' )
             b3.clicked.connect(self.load_b3)
-            b3.move(btn_size, btn_size/2.5)
+            b3.move(btn_size, 25 + btn_size/2.5)
 
         self.show()
 
