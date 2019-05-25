@@ -25,11 +25,12 @@ import searching as s
 # Windows for development
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 # Linux
-# chrome_path = '/usr/bin/google-chrome %s'
+chrome_path = '/usr/bin/firefox %s' #pinebook
 #PICTURE ADDRESS
 #windows
 pic_path = 'C:/Users/USER/Documents/coding/projects/pics_for_pi/'
 #linux
+pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
 
 
 class home_theater(QWidget):
