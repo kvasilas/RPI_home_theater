@@ -23,9 +23,11 @@ import searching as s
 #GLOBAL PARAMETERS
 #GOOGLE LOCATION
 # Windows for development
-chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+#chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 # Linux
 chrome_path = '/usr/bin/firefox %s' #pinebook
+# chrome_path = '/usr/bin/google-chrome %s'
+
 #PICTURE ADDRESS
 #windows
 pic_path = 'C:/Users/USER/Documents/coding/projects/pics_for_pi/'
