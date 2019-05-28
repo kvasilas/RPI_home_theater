@@ -149,7 +149,7 @@ class home_theater(QWidget):
 
     def search_title(self):
             home_theater.title = self.search_bar.text()
-            home_theater.found_list = s.search_title(home_theater.title)
+            home_theater.found_list = s.search_title(home_theater.title) #put this in the class
             #test arrays
             #home_theater.found_list = ['https://www.netflix.com/title/80018294', 'hulu',  'https://www.amazon.com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
             #home_theater.found_list = ['https://www..com/title/80018294', '',  'https://www..com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']

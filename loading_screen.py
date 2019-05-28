@@ -1,4 +1,4 @@
-loading_screen.showWithTimeout('State', "Looking for ... " + title + "...")
+loading_screen.showWithTimeout('State', "Looking for ... " + home_theater.title + "...")
 
 class loading_screen(QMessageBox):
     def __init__(self, *__args):
