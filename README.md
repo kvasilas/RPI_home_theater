@@ -7,26 +7,34 @@ Code for Raspberry pi use as a home theater.
 - get wireless mouse and keyboard.
 - maybe add light controls to it?
 
-
-Make big window buttons to fill up the screen of:
+## Media paths
+Mian applications already intergrated
 - amazon prime
 - netflix
-- hulu
 - youtube
+- xbox
+- wii
+
+others
+- hulu (search)
 - sonos
+- spotify
+- prime music
+- crackle (search)
 - ...  media
 
-maybe see if you can go xbox? idk how possible that is.  actually if i have a wireless hdmi switcher it might just work through the wires and gpio then computer to use as pc
+## Other Ideas
+for xbox/ wii use an hdmi switcher, break apart and then attach wires to the leads and buttons.  Use arduino/ arduino nano to control the switcher.  The cycle breakdown and flow chart is in the code
 
-search bar to look for a specific title ie: firestick
+search bar to look for a specific title ie: firestick - intergrate the loading screen in
 
-use pictures and icons to make it look nicer
-
-partical app intergration as a phone based mobile remote
-
-sony crackle?
+partical app intergration as a phone based mobile remote 
 
 l1 = QLabel(self)
 
 run python on boot kodi
 https://forum.kodi.tv/showthread.php?tid=283268
+
+have script poll the device to decide aspect sizes.
+
+
