@@ -37,4 +37,5 @@ https://forum.kodi.tv/showthread.php?tid=283268
 
 have script poll the device to decide aspect sizes.
 
+winscp
 
