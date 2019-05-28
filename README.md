@@ -6,6 +6,7 @@ Code for Raspberry pi use as a home theater.
 - 3d print case and attach it to ceiling
 - get wireless mouse and keyboard.
 - maybe add light controls to it?
+- use pypy3 it compiles so startup will be slow but runtime will be good!  especially useful if i dont use it as a computer
 
 ## Media paths
 Mian applications already intergrated
