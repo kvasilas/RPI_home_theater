@@ -27,3 +27,6 @@ partical app intergration as a phone based mobile remote
 sony crackle?
 
 l1 = QLabel(self)
+
+run python on boot kodi
+https://forum.kodi.tv/showthread.php?tid=283268
