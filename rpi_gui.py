@@ -287,6 +287,7 @@ class loading_screen(QMessageBox):
 
 
 if __name__ == '__main__':
+    #check for hdmi state and go to 1
     app = QApplication(sys.argv)
     ex = home_theater()
     sys.exit(app.exec_())
