@@ -1,7 +1,7 @@
 # Python3
 #
 # Home Theater (Firestick ish) application.
-# Intended to run on raspbery pi
+# Intended to run on linux
 #
 # Author: Kirk KC Vasilas
 # Created: April 2019
@@ -11,6 +11,9 @@
 import webbrowser
 import googlesearch
 import sys
+import time
+
+#Qt Modules
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
@@ -21,18 +24,25 @@ import searching as s
 
 
 #GLOBAL PARAMETERS
-#GOOGLE LOCATION
-# Windows for development
-#chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
-# Linux
-chrome_path = '/usr/bin/firefox %s' #pinebook
-# chrome_path = '/usr/bin/google-chrome %s'
+chrome_path = ''
+pic_path = ''
 
-#PICTURE ADDRESS
-#windows
-pic_path = 'C:/Users/USER/Documents/coding/projects/pics_for_pi/'
-#linux
-pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
+#OS initialization
+CPU_type = 'windows'
+#CPU_type = 'pi'
+#CPU_type = 'pine'
+#CPU_type = 'kodi'
+
+#Path parameter initialization
+if CPU_type == 'windows':
+    chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+    pic_path = 'C:/Users/USER/Documents/coding/projects/RPI_home_theater/pics_for_pi/'
+elif CPU_type == 'pine':
+    chrome_path = '/usr/bin/firefox %s'
+    pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
+else:
+    chrome_path = '/usr/bin/google-chrome %s'
+    pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
 
 
 class home_theater(QWidget):
@@ -149,7 +159,8 @@ class home_theater(QWidget):
 
     def search_title(self):
             home_theater.title = self.search_bar.text()
-            home_theater.found_list = s.search_title(home_theater.title) #put this in the class
+            #home_theater.found_list = s.search_title(home_theater.title) #put this in the class
+            loading_screen.showWithTimeout('search', "Looking for " + home_theater.title + "...")
             #test arrays
             #home_theater.found_list = ['https://www.netflix.com/title/80018294', 'hulu',  'https://www.amazon.com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
             #home_theater.found_list = ['https://www..com/title/80018294', '',  'https://www..com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
@@ -248,6 +259,31 @@ class results(home_theater):
         webbrowser.get(chrome_path).open(home_theater.found_list[3])
     def exit_prog(self):
         pass
+
+class loading_screen(QMessageBox):
+    def __init__(self, *__args):
+        QMessageBox.__init__(self)
+        self.autoclose = False
+        self.currentTime = 0
+        self.state = ''
+    def showEvent(self, QShowEvent):
+        self.currentTime = 0
+        if self.autoclose:
+            self.startTimer(1000)
+    def timerEvent(self, *args, **kwargs):
+        if(self.state == 'search'):
+            home_theater.found_list = s.search_title(home_theater.title) #put this in the class
+        time.sleep(1)
+        self.done(0)
+    @staticmethod
+    def showWithTimeout(state, message, icon=QMessageBox.Information, buttons=QMessageBox.Ok):
+        w = loading_screen()
+        w.autoclose = True
+        w.state = state
+        w.setText(message)
+        w.setIcon(icon)
+        w.setStandardButtons(buttons)
+        w.exec_()
 
 
 if __name__ == '__main__':
