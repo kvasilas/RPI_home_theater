@@ -3,12 +3,18 @@
 #
 # Kirk Vasilas
 #
+
 import RPi.GPIO as GPIO
-import time
+from time import *
+import serial
 
 #RPi = 1
 #Wii = 2
 #xbox = 3
+
+'''
+Use arduino nano instead. make these functions there and then send the char signals to the arduino.
+'''
 
 def current_state():
     #state = read pins to determine if hdmi switcher is in point 1, 2, 3
