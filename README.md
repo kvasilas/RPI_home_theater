@@ -40,7 +40,7 @@ have script poll the device to decide aspect sizes.
 
 winscp
 
-##In order to run PyQt5 on Raspberry pi use:
+## In order to run PyQt5 on Raspberry pi use:
 
 - sudo apt-get update
 - sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools
