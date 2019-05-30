@@ -29,7 +29,7 @@ for xbox/ wii use an hdmi switcher, break apart and then attach wires to the lea
 
 search bar to look for a specific title ie: firestick - intergrate the loading screen in
 
-partical app intergration as a phone based mobile remote 
+partical app intergration as a phone based mobile remote
 
 l1 = QLabel(self)
 
@@ -40,3 +40,6 @@ have script poll the device to decide aspect sizes.
 
 winscp
 
+the file path location for the pictures can be dynamic.  
+send a pwd command capture the string then add on the folder name
+include os

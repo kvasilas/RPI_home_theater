@@ -12,6 +12,8 @@ import webbrowser
 import googlesearch
 import sys
 import time
+import os
+
 
 #Qt Modules
 from PyQt5.QtWidgets import *
@@ -25,7 +27,7 @@ import searching as s
 
 #GLOBAL PARAMETERS
 chrome_path = ''
-pic_path = ''
+pic_path = os.getcwd() + 'pics_for_pi/'
 
 #OS initialization
 CPU_type = 'windows'
@@ -36,13 +38,13 @@ CPU_type = 'windows'
 #Path parameter initialization
 if CPU_type == 'windows':
     chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
-    pic_path = 'C:/Users/USER/Documents/coding/projects/RPI_home_theater/pics_for_pi/'
+    #pic_path = 'C:/Users/USER/Documents/coding/projects/RPI_home_theater/pics_for_pi/'
 elif CPU_type == 'pine':
     chrome_path = '/usr/bin/firefox %s'
-    pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
+    #pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
 else:
     chrome_path = '/usr/bin/google-chrome %s'
-    pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
+    #pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
 
 
 class home_theater(QWidget):
@@ -145,17 +147,17 @@ class home_theater(QWidget):
         webbrowser.get(chrome_path).open(url)
 
     def launch_nwii(self):
-        #hdmi.switch_input(2)
+        #hdmi.switch(2)
         #press enter 2x to return back, this way it shouldnt accidently happen
         input()
         input()
-        #hdmi.hdmi_switch(1)
+        #hdmi.switch(1)
 
     def launch_xbox(self):
-        #hdmi.switch_input(3)
+        #hdmi.switch(3)
         input()
         input()
-        #hdmi.hdmi_switch(1)
+        #hdmi.switch(1)
 
     def search_title(self):
             home_theater.title = self.search_bar.text()
@@ -287,6 +289,7 @@ class loading_screen(QMessageBox):
 
 
 if __name__ == '__main__':
+    #establish serial communication via hdmi_switch.py
     #check for hdmi state and go to 1
     app = QApplication(sys.argv)
     ex = home_theater()

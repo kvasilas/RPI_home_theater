@@ -1,72 +1,38 @@
-# rpi gpio
+# Python3
 #
+# Communication to arduino from media player
+# Switches HDMI Inputs
 #
-# Kirk Vasilas
+# Author: Kirk KC Vasilas
+# Created: May 2019
 #
 
-import RPi.GPIO as GPIO
 from time import *
 import serial
 
-#RPi = 1
-#Wii = 2
-#xbox = 3
+#serial Location
+#loc = 'COM4' #windows
+loc ='/dev/ttyUSB0' #linux
 
-'''
-Use arduino nano instead. make these functions there and then send the char signals to the arduino.
-'''
+ser = serial.Serial(loc, 9600)
 
-def current_state():
-    #state = read pins to determine if hdmi switcher is in point 1, 2, 3
-    #3 indicator wires to 3 pins
-    #poll pins for high or low
-    p1 = 0 #RPi
-    p2 = 0 #wii
-    p3 = 0 #xbox
-    high = 1
-    #assumes one will always be high
-    if(p1 == high):
-        return(1)
-    elif(p2 == high):
-        return(2)
+def switch(target):
+    m = 1
+    x = 2
+    w = 3
+    if(target == m):
+        ser.write(b'1')
+        sleep(1)
+    elif(target == x):
+        ser.write(b'2')
+        sleep(1)
     else:
-        return(3)
+        ser.write(b'3')
+        sleep(1)
 
-def button_press():
-    #one press of a button
-    #send pulse to switch button
-    #gpio pin high
-    #time pause
-    #gpio pin low
-    pass
+def check_current():
+    ser.write(b'c')
+    sleep(1)
 
-def switch_input(target):
-    current = current_state()
-    while(target != current):
-        button_press()
-        current = current_state()
-    return 0
-
-
-def switch_input_a(target):
-    current = current_state()
-    if(current == target):
-        print("no press")
-        print("same")
-        return 0
-    else:
-        if(target == current + 1):
-            button_press()
-            print('one press')
-            print('1-2', '2-3', '3-1', sep=' / ')
-        elif(target == current - 1):
-            button_press()
-            button_press()
-            print('two press')
-            print('2-1', '3-2')
-        else:
-            button_press()
-            button_press()
-            print('two press')
-            print('1-3')
-    return 0
+#to do
+#optomize switch
