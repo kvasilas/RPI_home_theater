@@ -33,6 +33,8 @@ def switch(target):
 def check_current():
     ser.write(b'c')
     sleep(1)
+    curr = ser.read()
+    #parse and pull out the answer
 
 #to do
 #optomize switch

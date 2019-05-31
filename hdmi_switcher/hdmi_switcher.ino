@@ -30,7 +30,7 @@ void loop{
         int input = Serial.read();
         switch(input){
             case 'c':
-                current_state();
+                check_state();
                 break;
             case 'b':
                 button_press();
@@ -63,6 +63,7 @@ void check_state(){
     else{
         current = media_pin;
     }
+    Serial.println(current);
 }
 
 void button_press(){
