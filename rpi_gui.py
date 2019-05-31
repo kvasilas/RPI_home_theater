@@ -161,7 +161,7 @@ class home_theater(QWidget):
 
     def search_title(self):
             home_theater.title = self.search_bar.text()
-            #home_theater.found_list = s.search_title(home_theater.title) #put this in the class
+            #home_theater.found_list = s.search_title(home_theater.title)
             loading_screen.showWithTimeout('search', "Looking for " + home_theater.title + "...")
             #test arrays
             #home_theater.found_list = ['https://www.netflix.com/title/80018294', 'hulu',  'https://www.amazon.com/Marvels-Daredevil-Season-1/dp/B01D1YR0N6']
@@ -274,7 +274,7 @@ class loading_screen(QMessageBox):
             self.startTimer(1000)
     def timerEvent(self, *args, **kwargs):
         if(self.state == 'search'):
-            home_theater.found_list = s.search_title(home_theater.title) #put this in the class
+            home_theater.found_list = s.search_title(home_theater.title)
         time.sleep(1)
         self.done(0)
     @staticmethod
