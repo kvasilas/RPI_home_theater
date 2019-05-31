@@ -20,7 +20,7 @@ void setup{
     Serial.begin(9600);
     delay(500);
     Serial.println("**  Serial Comm Set Up!  **");
-
+    delay(100);
     //Setup Moduless
     check_state();
 }
@@ -77,5 +77,6 @@ void switch_input(){
         button_press();
         check_state();
     }
+    delay(100);
     check_state();
 }

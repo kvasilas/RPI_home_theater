@@ -38,7 +38,7 @@ CPU_type = 'windows'
 #Path parameter initialization
 if CPU_type == 'windows':
     chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
-    #pic_path = 'C:/Users/USER/Documents/coding/projects/RPI_home_theater/pics_for_pi/'
+    pic_path = 'C:/Users/USER/Documents/coding/projects/RPI_home_theater/pics_for_pi/'
 elif CPU_type == 'pine':
     chrome_path = '/usr/bin/firefox %s'
     #pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
