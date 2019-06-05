@@ -1,5 +1,7 @@
 # RPI_home_theater
-Code for Raspberry pi use as a home theater.
+Code use as a home theater.
+
+Originally intended on being run with a raspberry pi.  Will be ran on an andriod tv box that boots peppermint or ubuntu.  
 
 ## Ideas
 - boot up on start and is a file on the home screen
@@ -17,11 +19,12 @@ Mian applications already intergrated
 - wii
 
 others
-- hulu (search)
-- sonos
-- spotify
-- prime music
-- crackle (search)
+- Hulu (search)
+- Sonos
+- Spotify
+- Prime music
+- Crackle (search)
+- Disney+
 - ...  media
 
 ## Other Ideas
@@ -38,7 +41,12 @@ https://forum.kodi.tv/showthread.php?tid=283268
 
 have script poll the device to decide aspect sizes.
 
-winscp
+winscp, free file transfer 
+
+add another box to serve as "other menu"
+include:
+- others (above)
+- app settings
 
 ## In order to run PyQt5 on Raspberry pi use:
 
