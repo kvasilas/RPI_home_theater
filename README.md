@@ -41,12 +41,14 @@ https://forum.kodi.tv/showthread.php?tid=283268
 
 have script poll the device to decide aspect sizes.
 
-winscp, free file transfer 
+winscp, free file transfer
 
 add another box to serve as "other menu"
 include:
 - others (above)
 - app settings
+
+use vscode and PlatformIO for the arduino
 
 ## In order to run PyQt5 on Raspberry pi use:
 
