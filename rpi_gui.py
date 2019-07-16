@@ -1,7 +1,6 @@
 # Python3
 #
 # Home Theater (Firestick ish) application.
-# Intended to run on linux
 #
 # Author: Kirk KC Vasilas
 # Created: April 2019
