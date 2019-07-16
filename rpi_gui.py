@@ -39,13 +39,13 @@ if CPU_type == 'windows':
     pic_path = 'C:/Users/USER/Documents/coding/projects/RPI_home_theater/pics_for_pi/'
 elif CPU_type == 'pine':
     chrome_path = '/usr/bin/firefox %s'
-    #pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
+    pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
 elif CPU_type == 'tvbox':
     chrome_path = '/usr/bin/chromium-browser'
     pic_path = '/home/greenport/documents/RPI_home_theater/pics_for_pi/'
 else:
     chrome_path = '/usr/bin/google-chrome %s'
-    #pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
+    pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
 
 
 class home_theater(QWidget):
@@ -121,7 +121,7 @@ class home_theater(QWidget):
         pc = QPushButton('', self)
         pc.setToolTip('Exit to computer?')
         pc.setGeometry(self.pos3, self.pos2, self.block_size, self.block_size)
-        pc.setIcon(QIcon(pic_path + 'rpi.png'))
+        pc.setIcon(QIcon(pic_path + 'cpu.png'))
         pc.setIconSize(QSize(self.block_size*.75, self.block_size*.75))
         pc.clicked.connect(self.exit_prog)
 
