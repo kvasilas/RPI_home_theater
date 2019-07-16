@@ -25,13 +25,13 @@ import searching as s
 
 #GLOBAL Paths
 chrome_path = ''
-pic_path = os.getcwd() + 'pics_for_pi/'
+#pic_path = os.getcwd() + 'pics_for_pi/'
 
 #OS initialization
-CPU_type = 'windows'
+#CPU_type = 'windows'
 #CPU_type = 'pi'
 #CPU_type = 'pine'
-#CPU_type = 'tvbox'
+CPU_type = 'tvbox'
 
 #Path parameter initialization
 if CPU_type == 'windows':
@@ -42,7 +42,7 @@ elif CPU_type == 'pine':
     #pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
 elif CPU_type == 'tvbox':
     chrome_path = '/usr/bin/chromium-browser'
-    #pic_path = '/home/greenport/documents/RPI_home_theater/pics_for_pi/'
+    pic_path = '/home/greenport/documents/RPI_home_theater/pics_for_pi/'
 else:
     chrome_path = '/usr/bin/google-chrome %s'
     #pic_path = '/home/kc/Documents/projects/RPI_home_theater/pics_for_pi/'
