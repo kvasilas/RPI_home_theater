@@ -1,4 +1,4 @@
-# Python3
+#!/usr/bin/env python3
 #
 # Home Theater (Firestick ish) application.
 #
@@ -24,7 +24,6 @@ import searching as s
 
 #GLOBAL Paths
 chrome_path = ''
-#pic_path = os.getcwd() + 'pics_for_pi/'
 
 #OS initialization
 #CPU_type = 'windows'
