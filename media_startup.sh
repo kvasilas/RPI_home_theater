@@ -1,5 +1,11 @@
-#cd to directory
-#pull repo or maybe not
-#python3 or pypy3 path/filename
+#!/bin/bash
 
-#set linnux ui to best settings for video ie hide all the tool bars and stuff then re open on close
+start_dir=`pwd`
+
+file_addr='/home/greenport/documents/RPI_home_theater/'
+cd $file_addr
+git pull
+sleep 1
+python3 rpi_gui.py
+
+cd start_dir
