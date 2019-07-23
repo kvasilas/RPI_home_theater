@@ -1,14 +1,16 @@
 # RPI_home_theater
 Code use as a home theater.
 
-Originally intended on being run with a raspberry pi.  Will be ran on an andriod tv box that boots peppermint or ubuntu.  
+Originally intended on being run with a raspberry pi.  Will be ran on an andriod tv box that boots armbian (ubuntu 16.04 for arm processors). 
+
+Insert Link
 
 ## Ideas
 - boot up on start and is a file on the home screen
 - 3d print case and attach it to ceiling
 - get wireless mouse and keyboard.
 - maybe add light controls to it?
-- use pypy3 it compiles so startup will be slow but runtime will be good!  especially useful if i dont use it as a computer
+- use pypy3 it compiles so startup will be slow but runtime will be better
 
 ## Media paths
 Mian applications already intergrated
