@@ -8,4 +8,4 @@ git pull
 sleep 1
 python3 rpi_gui.py
 
-cd start_dir
+cd $start_dir

@@ -54,9 +54,9 @@ class home_theater(QWidget):
     def __init__(self):
         super().__init__()
         self.title = 'Home Theater'
-        self.left = 100
-        self.top = 100
-        self.block_size = 300
+        self.left = 0 #100
+        self.top = 0 #100
+        self.block_size = 450 #300
         self.search_bar_height = 40
         self.search_bar_width = 300
         border = 15
