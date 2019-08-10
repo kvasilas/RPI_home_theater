@@ -119,3 +119,4 @@ dmypy.json
 *.stackdump
 *.google-cookie
 *.512
+*.vscode/
